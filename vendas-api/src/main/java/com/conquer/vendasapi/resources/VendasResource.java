@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.conquer.vendasapi.dto.VendasApiDto;
 import com.conquer.vendasapi.service.VendasService;
-import com.google.gson.Gson;
 
 @RestController
 public class VendasResource {
@@ -37,15 +36,14 @@ public class VendasResource {
 		
 	}
 	
-	
-	@GetMapping(value = "/lista-vendas", produces = {MediaType.APPLICATION_JSON_VALUE})
+	@GetMapping(value = "/listar", produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<?> listarVendas(@RequestParam("data")  @DateTimeFormat(pattern = "dd/MM/yyyy") Date dataVenda, HttpServletRequest request){
 		//Listar as vendas efetuadas na data informada
 		System.out.println(dataVenda);
 		return ResponseEntity.ok("API Online");
 	}
 	
-	@GetMapping(value = "/consulta-venda", produces = {MediaType.APPLICATION_JSON_VALUE})
+	@GetMapping(value = "/consultar", produces = {MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<?> consultarVenda(@RequestParam("id") Long idVenda, HttpServletRequest request){
 		//Consulta uma venda a partir da id
 		System.out.println(idVenda);
